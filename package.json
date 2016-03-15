@@ -1,0 +1,27 @@
+{
+  "name": "spidr-gpio",
+  "version": "1.0.0",
+  "description": "Raspberry GPIO Node library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jshint ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juneil/spidr-gpio.git"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "gpio"
+  ],
+  "author": "Juneil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juneil/spidr-gpio/issues"
+  },
+  "homepage": "https://github.com/Juneil/spidr-gpio#readme",
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  }
+}
