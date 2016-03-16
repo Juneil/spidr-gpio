@@ -24,6 +24,9 @@ setTimeout(() => {
     led.up();
     if (i > 0) leds[i-1].down();
     i++;
-    if (i > 7) i = 0;
+    if (i > 7) {
+      i = 0;
+      leds[7].down();
+    }
   }, 500);
 }, 1000);
