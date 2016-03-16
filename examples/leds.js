@@ -20,10 +20,10 @@ leds.forEach((led) => { led.up(); });
 setTimeout(() => {
   leds.forEach((led) => { led.down(); });
   setInterval(() => {
-    if (i > 7) i = 0;
     let led = leds[i];
     led.up();
     if (i > 0) leds[i-1].down();
     i++;
+    if (i > 7) i = 0;
   }, 500);
 }, 1000);
