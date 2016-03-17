@@ -13,7 +13,12 @@ const leds = [
   new Pin(13),
   new Pin(19)
 ];
+const in = new Pin(26);
 var i = 0;
+
+in.listen((value) => {
+  console.log('NEW VALUE = ' + value);
+});
 
 leds.forEach((led) => { led.up(); });
 
