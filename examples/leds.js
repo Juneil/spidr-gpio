@@ -13,10 +13,10 @@ const leds = [
   new Pin(13),
   new Pin(19)
 ];
-const in = new Pin(26);
+const pIn = new Pin(26);
 var i = 0;
 
-in.listen((value) => {
+pIn.listen((value) => {
   console.log('NEW VALUE = ' + value);
 });
 
