@@ -18,7 +18,7 @@ var i = 0;
 
 pIn.listen((value) => {
   console.log('NEW VALUE = ' + value);
-}, Pin.GPIO.FALLING);
+}, 'falling');
 
 leds.forEach((led) => { led.up(); });
 
