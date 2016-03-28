@@ -4,7 +4,8 @@
   "description": "Raspberry GPIO Node library",
   "main": "index.js",
   "scripts": {
-    "test": "jshint ./lib"
+    "pretest": "jshint ./lib",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,11 @@
   },
   "homepage": "https://github.com/Juneil/spidr-gpio#readme",
   "devDependencies": {
-    "jshint": "^2.9.1"
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
+    "mocha": "^2.4.5",
+    "rewire": "^2.5.1"
   },
   "dependencies": {
     "debug": "^2.2.0",

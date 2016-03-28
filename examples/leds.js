@@ -1,8 +1,6 @@
 'use strict';
 
 const Pin = require('../lib/pin');
-
-
 const leds = [
   new Pin(4),
   new Pin(17),
@@ -16,14 +14,12 @@ const leds = [
 const pIn = new Pin(26);
 var i = 0;
 
-/*pIn.listen((value) => {
-  console.log('NEW VALUE = ' + value);
-}, 'falling');*/
+pIn.listen(value => console.log('NEW VALUE = ' + value));
 
-leds.forEach((led) => { led.up(); });
+leds.forEach(led => led.up());
 
 setTimeout(() => {
-  leds.forEach((led) => { led.down(); });
+  leds.forEach(led => led.down());
   setInterval(() => {
     if (i > 7) {
       i = 0;
