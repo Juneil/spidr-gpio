@@ -7,11 +7,11 @@ var myFS = {};
 Pin.__set__('fs', {
   writeFileSync: (path, value) => {
     if(path.indexOf('export') > -1) {
-      myFS[Pin.PATH + '/gpio' + value] = 'folder';
+      myFS[Pin.PATH() + '/gpio' + value] = 'folder';
     }
     if(path.indexOf('unexport') > -1) {
       Object.keys(myFS).forEach(elem => {
-        if(elem.indexOf(Pin.PATH + '/gpio' + value) > -1) {
+        if(elem.indexOf(Pin.PATH() + '/gpio' + value) > -1) {
           delete myFS[elem];
         }
       });
@@ -51,8 +51,8 @@ describe('Creation', () => {
 describe('Direction', () => {
   it('Success', () => {
     const pin = new Pin(6);
-    pin.direction(Pin.DIR_IN);
-    assert.equal(myFS[Pin.PATH + '/gpio6/direction'], Pin.DIR_IN);
+    pin.direction(Pin.DIR_IN());
+    assert.equal(myFS[Pin.PATH() + '/gpio6/direction'], Pin.DIR_IN());
   });
   it('Failed', () => {
     const pin = new Pin(6);
@@ -67,8 +67,8 @@ describe('Direction', () => {
 describe('Edge', () => {
   it('Success', () => {
     const pin = new Pin(7);
-    pin.edge(Pin.EDGE_RISING);
-    assert.equal(myFS[Pin.PATH + '/gpio7/edge'], Pin.EDGE_RISING);
+    pin.edge(Pin.EDGE_RISING());
+    assert.equal(myFS[Pin.PATH() + '/gpio7/edge'], Pin.EDGE_RISING());
   });
   it('Failed', () => {
     const pin = new Pin(7);
@@ -99,18 +99,18 @@ const pin9 = new Pin(9);
 describe('Write / Read', () => {
   it('Write', () => {
     pin9.write(1);
-    assert.equal(myFS[Pin.PATH + '/gpio9/value'], Pin.VALUE_UP);
+    assert.equal(myFS[Pin.PATH() + '/gpio9/value'], Pin.VALUE_UP());
   });
   it('Read', () => {
-    assert.equal(pin9.read(), Pin.VALUE_UP);
+    assert.equal(pin9.read(), Pin.VALUE_UP());
   });
 });
 
 describe('Setup', () => {
   it('Success', () => {
     const pin = new Pin(10);
-    pin.setup(Pin.DIR_IN, Pin.EDGE_FALLING);
-    assert.equal(myFS[Pin.PATH + '/gpio10/direction'], Pin.DIR_IN);
-    assert.equal(myFS[Pin.PATH + '/gpio10/edge'], Pin.EDGE_FALLING);
+    pin.setup(Pin.DIR_IN(), Pin.EDGE_FALLING());
+    assert.equal(myFS[Pin.PATH() + '/gpio10/direction'], Pin.DIR_IN());
+    assert.equal(myFS[Pin.PATH() + '/gpio10/edge'], Pin.EDGE_FALLING());
   });
 });
