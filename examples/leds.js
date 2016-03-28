@@ -16,9 +16,9 @@ const leds = [
 const pIn = new Pin(26);
 var i = 0;
 
-pIn.listen((value) => {
+/*pIn.listen((value) => {
   console.log('NEW VALUE = ' + value);
-}, 'falling');
+}, 'falling');*/
 
 leds.forEach((led) => { led.up(); });
 
